@@ -4,6 +4,7 @@
 #include <QLineEdit>
 #include <QListWidget>
 #include <QDir>
+#include <QComboBox>
 
 
 MainFrm::MainFrm(QWidget *parent)
@@ -11,11 +12,22 @@ MainFrm::MainFrm(QWidget *parent)
     , ui(new Ui::MainFrm)
 {
     ui->setupUi(this);
+    init_ui();
 }
 
 MainFrm::~MainFrm()
 {
     delete ui;
+}
+
+void MainFrm::init_ui()
+{
+    QStringList encodes{"GB2312","UTF-8"};
+    auto sec = static_cast<QComboBox*>(ui->centralwidget->findChild<QComboBox*>("source_encode_cmbox"));
+    sec->addItems(encodes);
+
+    auto tec = static_cast<QComboBox*>(ui->centralwidget->findChild<QComboBox*>("target_encode_cmbox"));
+    tec->addItems(encodes);
 }
 
 
@@ -37,7 +49,7 @@ void MainFrm::on_source_open_dir_btn_clicked()
     // Add these to list.
     auto sl = static_cast<QListWidget*>(ui->centralwidget->findChild<QListWidget*>("source_list"));
     //auto count=sl->count();
-    for(auto file:files) {
+    for(auto& file:files) {
         QListWidgetItem * item = new QListWidgetItem;
         item->setSizeHint(QSize(sl->width(),50));
         item->setText(file);
@@ -58,5 +70,11 @@ void MainFrm::on_target_open_dir_btn_clicked()
         QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     auto tde = static_cast<QLineEdit*>(ui->centralwidget->findChild<QLineEdit*>("target_dir_edit"));
     tde->setText(dir);
+}
+
+
+void MainFrm::on_do_btn_clicked()
+{
+
 }
 

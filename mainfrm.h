@@ -14,11 +14,15 @@ class MainFrm : public QMainWindow
 public:
     MainFrm(QWidget *parent = nullptr);
     ~MainFrm();
+private:
+    void init_ui();
 
 private slots:
     void on_source_open_dir_btn_clicked();
 
     void on_target_open_dir_btn_clicked();
+
+    void on_do_btn_clicked();
 
 private:
     Ui::MainFrm *ui;
