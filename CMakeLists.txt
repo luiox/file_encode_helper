@@ -9,6 +9,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 设置 CMAKE_PREFIX_PATH 查找路径, 需要设置"D:/Qt/6.2.4/msvc2019_64/bin"到环境变量
+set(CMAKE_PREFIX_PATH "D:/Qt/6.2.4/msvc2019_64")
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
@@ -16,6 +19,8 @@ set(PROJECT_SOURCES
         main.cpp
         mainfrm.cpp
         mainfrm.h
+        textfileencoder.cpp
+        textfileencoder.h
         mainfrm.ui
 )
 
