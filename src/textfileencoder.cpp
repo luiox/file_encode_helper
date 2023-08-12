@@ -1,7 +1,10 @@
-#include "textfileencoder.h"
+﻿#include "textfileencoder.h"
 #include <QStringConverter>
 #include <QByteArray>
 #include <QTextStream>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
 
 TextFileEncoder::TextFileEncoder()
 {

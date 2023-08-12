@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+Ôªøcmake_minimum_required(VERSION 3.5)
 
 project(file_encode_helper VERSION 0.1 LANGUAGES CXX)
 
@@ -9,19 +9,24 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# …Ë÷√ CMAKE_PREFIX_PATH ≤È’“¬∑æ∂, –Ë“™…Ë÷√"D:/Qt/6.2.4/msvc2019_64/bin"µΩª∑æ≥±‰¡ø
+# ËÆæÁΩÆ CMAKE_PREFIX_PATH Êü•ÊâæË∑ØÂæÑ, ÈúÄË¶ÅËÆæÁΩÆ"D:/Qt/6.2.4/msvc2019_64/bin"Âà∞ÁéØÂ¢ÉÂèòÈáè
 set(CMAKE_PREFIX_PATH "D:/Qt/6.2.4/msvc2019_64")
+
+set(QRC_SOURCE_FILES "res.qrc")
+#qt_add_resources(QRC_SOURCE_FILES ${QRC_SOURCE_FILES})
+
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainfrm.cpp
-        mainfrm.h
-        textfileencoder.cpp
-        textfileencoder.h
-        mainfrm.ui
+        src/main.cpp
+        src/mainfrm.cpp
+        src/mainfrm.h
+        src/textfileencoder.cpp
+        src/textfileencoder.h
+        src/mainfrm.ui
+        ${QRC_SOURCE_FILES}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

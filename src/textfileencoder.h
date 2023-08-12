@@ -1,10 +1,7 @@
-#ifndef TEXTFILEENCODER_H
+﻿#ifndef TEXTFILEENCODER_H
 #define TEXTFILEENCODER_H
 
 #include <QString>
-#include <QFile>
-#include <QTextStream>
-#include <QDir>
 
 class TextFileEncoder
 {

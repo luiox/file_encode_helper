@@ -1,4 +1,4 @@
-#include "mainfrm.h"
+﻿#include "mainfrm.h"
 #include "./ui_mainfrm.h"
 #include <QFileDialog>
 #include <QLineEdit>
@@ -8,8 +8,11 @@
 #include <QMessageBox>
 #include <QDebug>
 
+#define USE_CONSOLE
 #ifdef _WIN32
+#ifdef USE_CONSOLE
 #pragma comment (linker,"/subsystem:CONSOLE /entry:mainCRTStartup" )
+#endif
 #endif // WIN32
 
 MainFrm::MainFrm(QWidget *parent)
